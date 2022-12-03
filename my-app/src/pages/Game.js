@@ -20,6 +20,9 @@ class Game extends React.Component {
     for (let i = 0; i < 10; i++) {
       cards.push(this.renderCard(i));
     }
+    /* for (let i = 0; i < 26; i++) {
+      cards.push(this.renderCard(i));
+    } */
     return (
       <div>
         <button className="start-button" onClick={this.gameStart}>スタート</button>
@@ -156,7 +159,21 @@ class Game extends React.Component {
   }
 
   getInitialState = () => {
-    let arr = Array("♡", "♡", "♢", "♢", "♤", "♤", "♧", "♧", "♥", "♥");
+    let tranpNo=[];
+    for (let number = 1; number <= 13; number++) {
+      // トランプナンバーが13枚振り分けられる。
+      tranpNo.push(number);
+    }
+    tranpNo = this.shuffle(tranpNo);
+    let arr = [];
+    for (let useNumber = 0; useNumber <= 4; useNumber++) {
+      // 13枚のトランプから5種類のトランプを選ぶ。
+      arr.push(tranpNo[useNumber]);
+      arr.push(tranpNo[useNumber]);
+    }
+
+    //let arr = Array("♡", "♡", "♢", "♢", "♤", "♤", "♧", "♧", "♥", "♥");
+    //let sts = Array(10).fill(0);
     let sts = Array(10).fill(0);
     arr = this.shuffle(arr);
     return {
@@ -164,7 +181,7 @@ class Game extends React.Component {
       status: sts,
       ready: -1,
       message: '',
-      count: 15,
+      count: 30,
       timer: null,
       title: '',
       run: false,
