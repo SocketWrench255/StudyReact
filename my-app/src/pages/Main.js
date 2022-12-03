@@ -1,14 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Table from './Table'
+import Game from './Game'
 
 class Main extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/">Main</Link>
         <div className="main">
-            <Table />
+            <Game />
         </div>
       </div>
     )

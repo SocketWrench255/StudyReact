@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Table extends React.Component {
+class Game extends React.Component {
   constructor(props) {
     super(props);
     //画面で表示する変数を作る
@@ -204,4 +204,4 @@ function Card(props) {
   );
 }
 
-export default Table;
+export default Game;
